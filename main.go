@@ -21,7 +21,6 @@ func init() {
 
 // DefineEvent 入参参数
 type DefineEvent struct {
-	// test event define
 	Body string `json:"body"`
 }
 
@@ -116,7 +115,7 @@ func (s Similarity) cut(s1 string) []string {
 	return gse.ToSlice(segments)
 }
 
-// ***************************************************
+// *****云函数相关**********************************************
 
 // Scf 入口函数
 func Scf(event DefineEvent) (ResponseData, error) {
@@ -164,9 +163,4 @@ func Scf(event DefineEvent) (ResponseData, error) {
 func main() {
 	// Make the handler available for Remote Procedure Call by Cloud Function
 	cloudfunction.Start(Scf)
-
-	// d := DefineEvent{}
-	// d.Body = `{"data":[{"id":1,"first":"我爱中国","second":"我爱祖国"}]}`
-	// Scf(d)
-
 }
